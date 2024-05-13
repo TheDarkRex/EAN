@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../imgui/Interval.h"
 #include <vector>
 

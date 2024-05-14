@@ -2,19 +2,19 @@
 
 int st = 0;
 
-double naturalsplinevalue(int n, vector<double> x, vector<double> f, double xx, int &st) {
+double naturalsplinevalue(int n, std::vector<double> x, std::vector<double> f, double xx, int* st) {
         int i, k;
         double u, y, z;
         bool found;
-        vector<double> d(n + 1);
-        vector<double> b(n - 1);
-        vector<double> c(n - 1);
+        std::vector<double> d(n + 1);
+        std::vector<double> b(n - 1);
+        std::vector<double> c(n - 1);
         double a[4];
 
         if (n < 1) {
-            st = 1;
+            *st = 1;
         } else if (xx < x[0] || xx > x[n]) {
-            st = 3;
+            *st = 3;
         } else {
             st = 0;
             i = -1;
@@ -22,11 +22,11 @@ double naturalsplinevalue(int n, vector<double> x, vector<double> f, double xx, 
                 i++;
                 for (k = i + 1; k <= n; k++) {
                     if (x[i] == x[k]) {
-                        st = 2;
+                        *st = 2;
                         break;
                     }
                 }
-            } while ((i < n - 1) && (st != 2));
+            } while ((i < n - 1) && (*st != 2));
         }
 
     double result = 0.0;

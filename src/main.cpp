@@ -1,12 +1,13 @@
 
-
+#define MPFR_USE_NO_MACRO
+#define MPFR_USE_INTMAX_T
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <stdio.h>
 #include <vector>
 #include <string>
-#include "../imgui/Interval.h"
+#include <Interval.h>
 #include "./naturalspline.h"
 #define GL_SILENCE_DEPRECATION
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -186,7 +187,7 @@ int main(int, char**)
             }
 
 
-            if (float_point)
+            if (float_point_to_interval)
             {
                 ImGui::InputDouble("Point:", &xx);
                 ImGui::InputInt("Number of nodes:", &n);
@@ -194,7 +195,7 @@ int main(int, char**)
             }
             
             
-            if (float_point_to_interval)
+            if (float_point)
             {
                 ImGui::InputDouble("Point:", &xx);
                 ImGui::InputInt("Number of nodes:", &n);
@@ -251,7 +252,7 @@ int main(int, char**)
                     ImGui::SameLine();
                     ImGui::Text("f[%d] = %lf", i, f[i]);
                 }
-                
+
                 result = naturalsplinevalue(n, x, f, xx, &st);
 
                 ImGui::Text("Result: %lf St: %d", result, st);

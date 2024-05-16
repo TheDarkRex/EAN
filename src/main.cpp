@@ -197,7 +197,9 @@ int main(int, char**)
             
             if (float_point)
             {
+                ImGui::SetNextItemWidth(100);
                 ImGui::InputDouble("Point:", &xx);
+                ImGui::SetNextItemWidth(100);
                 ImGui::InputInt("Number of nodes:", &n);
                 
                 if (n < (int) x.size())
@@ -253,9 +255,17 @@ int main(int, char**)
                     ImGui::Text("f[%d] = %lf", i, f[i]);
                 }
 
-                result = naturalsplinevalue(n, x, f, xx, &st);
+                result = naturalsplinevalue(n, x, f, xx, st);
 
-                ImGui::Text("Result: %lf St: %d", result, st);
+                if (st == 0)
+                {
+                    ImGui::Text("Result: %.30lf St: %d", result, st);    
+                }
+                else
+                {
+                    ImGui::Text("St: %d", st);
+                }
+                
 
                 if (ImGui::Button("Close"))
                 {

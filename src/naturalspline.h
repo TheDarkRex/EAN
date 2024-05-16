@@ -7,5 +7,6 @@
 #include <vector>
 
 using namespace interval_arithmetic;
+using namespace std;
 
-double naturalsplinevalue(int n, std::vector<double> x, std::vector<double> f, double xx, int *st);
+double naturalsplinevalue(int n, vector<double>& x, vector<double>& f, double xx, int& st);

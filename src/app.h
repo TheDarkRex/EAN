@@ -54,6 +54,7 @@ private:
     mpfr_t mpfr_result;
 
     double xx;
+    double resultWidth;
 
     string left, right;
 

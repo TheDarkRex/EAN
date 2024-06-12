@@ -233,8 +233,9 @@ int App::update(){
                 rightChar = new char[right.length()+1];
                 strcpy(rightChar, right.c_str());
 
+                resultWidth = interval_mp_result.GetWidth().toDouble();
 
-                ImGui::Text("Result: [%s, %s] St: %d", leftChar, rightChar, st);
+                ImGui::Text("Result: [%s, %s] Width: %.15e St: %d", leftChar, rightChar, resultWidth, st);
             }
 
             if (float_point_to_interval)
@@ -281,8 +282,9 @@ int App::update(){
                 rightChar = new char[right.length()+1];
                 strcpy(rightChar, right.c_str());
 
+                resultWidth = interval_mp_result.GetWidth().toDouble();
 
-                ImGui::Text("Result: [%s, %s] St: %d", leftChar, rightChar, st);
+                ImGui::Text("Result: [%s, %s] Width: %.15e St: %d", leftChar, rightChar, resultWidth, st);
             }
             
             
@@ -374,7 +376,9 @@ int App::update(){
                         rightChar = new char[right.length()+1];
                         strcpy(rightChar, right.c_str());
 
-                        ImGui::Text("a[%d, %d] = [%s, %s]", k, i, leftChar, rightChar);
+                        resultWidth = a_mp[k][i].GetWidth().toDouble();
+
+                        ImGui::Text("a[%d, %d] = [%s, %s] Width: %.15e", k, i, leftChar, rightChar, resultWidth);
                         //ImGui::Text("test");
                     }
                     
@@ -427,7 +431,9 @@ int App::update(){
                         rightChar = new char[right.length()+1];
                         strcpy(rightChar, right.c_str());
 
-                        ImGui::Text("a[%d, %d] = [%s, %s]", k, i, leftChar, rightChar);
+                        resultWidth = a_mp[k][i].GetWidth().toDouble();
+
+                        ImGui::Text("a[%d, %d] = [%s, %s] Width: %.15e", k, i, leftChar, rightChar, resultWidth);
                         //ImGui::Text("test");
                     }
                     

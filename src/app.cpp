@@ -463,7 +463,7 @@ int App::update(){
 
     ImGui::SameLine();
 
-    if (ImGui::Checkbox("Factor", &factorGUI))
+    if (ImGui::Checkbox("Coeffns", &factorGUI))
     {
         valueGUI = false;
         factorGUI = true;
